@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- html 5 버전 -->
+<html lang="ko"> <!--html 태그 시작-->
+    <!-- html 코딩 시작 검색엔진 언어 설정 한국어=ko 영어=en -->
+  <head>  <!--웹 속성 설정 meta title style script link 웹 사이트 설정-->
+    <meta charset="UTF-8" />
+    <title>비밀번호 일치 여부 확인</title>
+  </head>
+
+  <body>
+    <h1>회원가입</h1>
+    비밀번호 입력 : <input type="password" id="inputPw1"><br>
+    비밀번호 일치 확인 : <input type="password" id="inputPw2"><br>
+    
+    <button onclick="비밀번호확인()">일치하는지 확인하기</button>
+    <script>
+        const 비번1 = document.getElementById("inputPw1");
+        const 비번2 = document.getElementById("inputPw2");
+
+        function 비밀번호확인() {
+            //input 과 같은 창에 작성된 내용은 모두 value라는 이름으로 담겨짐
+            const pw = 비번1.value;
+            const pw2 = 비번2.value;
+
+            //만약에 비밀번호가 비밀번호 확인과 일치하다면 alert 이용해
+            //비밀번호가 일치합니다. 띄우기
+            //비밀번호가 일치하지 않는다면 alert 이용해
+            //비밀번호가 일치하지 않습니다 띄우기.
+
+            if(pw == pw2){
+                alert("비밀번호가 일치합니다.");
+            } else {
+                alert("비밀번호가 일치하지 않습니다.")
+            }
+        }
+    </script>
+
+  </body>
+</html> <!--html 태그 종료-->
