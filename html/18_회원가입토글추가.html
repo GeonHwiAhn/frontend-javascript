@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- html 5 버전 -->
+<html lang="ko"> <!--html 태그 시작-->
+    <!-- html 코딩 시작 검색엔진 언어 설정 한국어=ko 영어=en -->
+  <head>  <!--웹 속성 설정 meta title style script link 웹 사이트 설정-->
+    <meta charset="UTF-8" />
+    <title>회원가입</title>
+    <style>
+        .회원가입{
+            color: red;
+        }
+    </style>
+  </head>
+
+  <body>
+
+    
+        
+    <h1>회원가입</h1>
+    
+    <label>이름 : </label>
+    <input type="text" id="user_name" required>
+    <label>이메일 : </label>
+    <input type="email" id="user_email" required>
+    <label>비밀번호 : </label>
+    <input type="password" id="user_pw" required>
+    <label>비밀번호확인 : </label>
+    <input type="password" id="user_pw_confirm" required>
+
+
+
+    <button type="button" onclick="이름존재확인()">이름확인</button>
+    <button type="button" onclick="이메일존재확인()">이메일확인</button>
+    <button class="회원가입" type="button" onclick="회원가입()">회원가입</button>
+
+    <script>
+
+        function 이름존재확인() {
+            const 이름값 = document.getElementById("user_name");
+            const 이름 = 이름값.value;
+        
+        if(이름 == "고영희") {
+            alert("이미 가입된 회원입니다");
+        } else {
+            alert("회원가입 하십시오.");
+        }
+    }
+
+
+        function 이메일존재확인() {        
+            const 이메일값 = document.getElementById("user_email");
+            const 이메일 = 이메일값.value;
+        
+        if(이메일 =="ko@kh.kh") {
+            alert("이미 가입된 회원입니다");
+        } else {
+            alert("회원가입 하십시오.");
+        }
+    }
+
+    /*
+    function 회원가입() {
+        const 비밀번호값 = document.getElementById("user_pw");
+        const 비밀번호확인값 = document.getElementById("user_pw_confirm");
+
+        const 비밀번호 = 비밀번호값.value;
+    }
+
+        if()
+    */
+
+
+
+    </script>
+
+    
+
+
+  </body>
+</html> <!--html 태그 종료-->
