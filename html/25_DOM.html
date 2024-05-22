@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- html 5 버전 -->
+<html lang="ko"> <!--html 태그 시작-->
+    <!-- html 코딩 시작 검색엔진 언어 설정 한국어=ko 영어=en -->
+  <head>  <!--웹 속성 설정 meta title style script link 웹 사이트 설정-->
+    <meta charset="UTF-8" />
+    <title>DOM</title>
+  </head>
+
+  <body>
+    <h1>DOM(document OBject Model)</h1>
+
+    <pre>
+        HTML(웹문서, 웹페이지 문서를 객체 기반으로 표현한 것)
+        -> HTML 문서에 작성된 내용을 트리구조(계층형으로 표현)로 나타냈을 때
+            각 태그, tetx, commnert 등을 node 라고 함
+
+            document :{
+                DOCTYPE : html,
+                HTML : {
+                    HEAD : {
+                        TITLE : {TEXT : 문서 제목},
+                        STYLE : {CSS 내용},
+                        META : {charset : "UTF-8", ... },
+                    },
+                    BODY : {
+                        H1 : {TEXT : "제목"}
+                        DIV : {...}
+                    }
+                }
+            }
+    </pre>
+  </body>
+</html> <!--html 태그 종료-->

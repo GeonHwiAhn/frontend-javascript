@@ -5,92 +5,21 @@
   <head>  <!--웹 속성 설정 meta title style script link 웹 사이트 설정-->
     <meta charset="UTF-8" />
     <title>채팅 프로그램</title>
-    <style>
-        #chat-container {
-            width: 300px;
-            height: 400px;
-            border: 2px solid #ccc;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-        }
-        #chat-box {
-            flex: 1;
-            padding: 10px;
-            border-bottom: 2px solid orange;
-            overflow-y: auto;
-        }
-        .message {
-            padding: 5px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        .user-message {
-            background-color: lightskyblue;
-            align-self: flex-end;
-        }
-        .bot-message {
-            background-color: lightgreen;
-            align-self: flex-start;
-        }
-        #input-box {
-            display: flex;
-        }
-        #input-box input {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-top:2px solid #ccc ;
-        }
-        button {
-            padding: 10px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/19_채팅봇.css">
   </head>
-
   <body>
-    <h1>챗봇 상담하기</h1>
 
-    
+    <h1>채팅봇 프로그램</h1>
 
     <div id="chat-container">
-        <div id="chat-box">무엇을 도와드릴까요?</div>
-        <div id="input-box">            
+        <div id="chat-box"></div>
+        <div id="input-box">
             <input type="text" id="user-input" placeholder="메세지를 입력하세요...">
-            <button onclick="sendMessage()">보내기</button>
+            <button onclick="sendMessege()">보내기</button>
         </div>
     </div>
 
-    <script>
-        function sendMessage() {
-            const inputbox = document.getElementById("user-input");
-            const message = inputbox.value.trim();
-            if(message == "") {
-                return;
-            }
+    <script src="../js/19_채팅봇.js"></script>
 
-            메세지보이기(message,"user");
-            inputbox.value = "";
-
-            //채팅봇 띄우기
-            setTimeout(() => {
-               메세지보이기("저는 채팅 봇입니다.", "bot" ); 
-            }, 1000);
-        }
-
-        function 메세지보이기(message, sender) {
-            const chatbox = document.getElementById("chat-box");
-            const messageElement = document.createElement("div");
-
-            messageElement.classList.add("message", sender + "-message");
-            messageElement.textContent = message;
-            chatbox.appendChild(messageElement);
-        }
-    </script>
   </body>
-
 </html> <!--html 태그 종료-->
