@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- html 5 버전 -->
+<html lang="ko"> <!--html 태그 시작-->
+    <!-- html 코딩 시작 검색엔진 언어 설정 한국어=ko 영어=en -->
+  <head>  <!--웹 속성 설정 meta title style script link 웹 사이트 설정-->
+    <meta charset="UTF-8" />
+    <title>회원가입 유효성 검사</title>
+    <style>
+        .check {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!--
+        -아이디 6~16자 (대소문자 숫자 사용가능)
+    -->
+    <h2>회원가입</h2>
+    <form action="#" name="signupForm">
+        <h3>아이디</h3>
+        <input type="text" class="signup-input" id="inputId" name="user_Id"> <br>
+        <span class="input-result">아이디 6~16자 대,소문자 숫자 사용 가능</span>
+    </form>    
+
+    <script>
+        const checkList = {
+            /* 유효성 여부를 체크해주는 객체 생성*/
+            "inputId" : false
+        };
+        const inputId = document.querySelector("#inputId");
+
+        inputId.addEventListener("input", e => {
+            //            e(input).target= 이벤트가 발생한 태그(버튼, 입력 필드 등)을 가리킴
+            //            value = 이벤트가 발생한 태그의 값을 가져오기.
+            const value = e.target.value;
+            //      Sibling(형제 자매) = brother sister
+            //            <input>       <br>                <span>
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            //만약에 입력이 아무것도 안되어있으면 입력x
+            if(value.trim().length == 0) {
+                span.textContent = "아이디 6~16자 대,소문자 숫자 사용 가능";
+                span.classList.remove("check", "error");
+                e.target.value = "";
+                checkList["inputId"] = false;
+                return;
+            }
+
+
+            const 아이디정규식 = /^[A-Za-z0-9]{6,16}$/;
+
+            //만약에 아이디를 제대로 작성한 경우
+            if(     아이디정규식.test(value)) {
+                span.textContent = "유효한 형식의 ID입니다."; 
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputId"] = true;
+            } else {
+                span.textContent = "유효하지 않은 형식의 ID입니다."; 
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputId"] = false;
+
+            }
+        })
+    </script>
+
+</body>
+</html> <!--html 태그 종료-->

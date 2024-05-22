@@ -21,9 +21,12 @@
        input이나 textarea 에 값을 입력 후 
        키보드에서(한글을 제외한) 모든 키를 누르면
        버튼을 따로 클릭하지 않아도 클릭한 것처럼 작동
-      </p>
+
+       onkeypress - 권장하진 않음
+       onkeydown - 권장
+    </p>
     
-    <input type="text" onkeypress="엔터기능()">
+    <input type="text" onkeydown="엔터기능(event)">
 
   </body>
   <script src="../js/23_onKey-onpress.js"></script>

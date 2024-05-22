@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>회원가입 유효성 검사</title>
+        <style>
+            .check {
+                color: green;
+            }
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h2>회원가입</h2>
+        <form action="#" name="signupForm">
+            <h3>생년월일</h3>
+            <input type="text" class="signup-input" id="inputYears" name="user_Years"> <br>
+            <span class="input-result">생년월일</span>
+        </form>
+
+        <script>
+            const checkList = {
+                "inputYears" : false
+            }
+            const inputYears = document.querySelector("#inputYears");
+
+            inputYears.addEventListener("input", e => {
+                const value = e.target.value;
+                const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0) {
+                span.textContent = "3자리, 3/4자리, 4자리";
+                span.classList.remove("check", "error");
+                e.target.value = "";
+                checkList["inputYears"] = false;
+                return;
+            }
+
+            const 생년월일정규식 = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+
+            if (생년월일정규식.test(value)) {
+                span.textContent = "유효한 생년월일입니다."
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputYears"] = true;
+            } else {
+                span.textContent = "유효하지 않은 생년월일입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList[inputYears] = flase;
+            }
+
+
+            })
+            
+        </script>
+    </body>
+</html>
